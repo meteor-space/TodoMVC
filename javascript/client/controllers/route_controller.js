@@ -14,5 +14,7 @@ Space.Object.extend(TodoMVC, 'RouteController', {
 
 });
 
-TodoMVC.RouteController.mixin(Space.messaging.EventSubscribing);
-TodoMVC.RouteController.mixin(Space.messaging.EventPublishing);
+TodoMVC.RouteController.mixin([
+  Space.messaging.EventSubscribing,
+  Space.messaging.EventPublishing
+]);
