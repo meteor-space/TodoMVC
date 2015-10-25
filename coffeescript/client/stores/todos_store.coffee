@@ -29,7 +29,7 @@ class TodoMVC.TodosStore extends Space.flux.Store
 
   activeTodos: -> @todos.find isCompleted: false
 
-  events: -> [
+  eventSubscriptions: -> [
 
     'TodoMVC.TodoCreated': (event) -> @todos.insert {
       title: event.title, isCompleted: false

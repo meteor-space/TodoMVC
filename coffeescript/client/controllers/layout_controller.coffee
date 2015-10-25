@@ -7,6 +7,6 @@ class TodoMVC.LayoutController extends Space.Object
 
   @mixin Space.messaging.EventSubscribing
 
-  events: -> [
+  eventSubscriptions: -> [
     'TodoMVC.FilterRouteTriggered': (event) -> @layout.render "index"
   ]

@@ -53,7 +53,7 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
   // Map private methods to events coming from the outside
   // this is the only way state can change within the store.
 
-  events: function() {
+  eventSubscriptions: function() {
     return [{
       'TodoMVC.TodoCreated': this._insertNewTodo,
       'TodoMVC.TodoDeleted': this._removeTodo,

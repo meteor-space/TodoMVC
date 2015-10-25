@@ -5,7 +5,7 @@ Space.Object.extend(TodoMVC, 'LayoutController', {
     layout: 'BlazeLayout'
   },
 
-  events: function() {
+  eventSubscriptions: function() {
     return [{
       'TodoMVC.FilterRouteTriggered': function(event) {
         this.layout.render("index");
