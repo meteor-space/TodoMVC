@@ -1,6 +1,6 @@
 
-var ENTER_KEY = 13;
-var ESCAPE_KEY = 27;
+let ENTER_KEY = 13;
+let ESCAPE_KEY = 27;
 
 Template.todo.onCreated(function() {
   this.getTitleValue = _.bind(function() {
@@ -10,19 +10,18 @@ Template.todo.onCreated(function() {
 
 Template.todo.helpers({
 
-  completedState: function() {
+  completedState() {
     return this.isCompleted ? 'completed' : '';
   },
 
-  editingState: function() {
-    if(this.isEditing) {
-      var template = Template.instance();
-      if(template.view.isRendered) {
+  editingState() {
+    if (this.isEditing) {
+      let template = Template.instance();
+      if (template.view.isRendered) {
         template.$('.edit').focus().select();
       }
       return 'editing';
-    }
-    else {
+    } else {
       return '';
     }
   }
@@ -30,31 +29,32 @@ Template.todo.helpers({
 
 Template.todo.events({
 
-  'click .toggle': function(event, template) {
+  'click .toggle'(event, template) {
     template.$(template.firstNode).trigger('toggled');
   },
 
-  'click .destroy': function(event, template) {
+  'click .destroy'(event, template) {
     template.$(template.firstNode).trigger('destroyed');
   },
 
-  'dblclick .todo': function(event, template) {
+  'dblclick .todo'(event, template) {
     template.$(template.firstNode).trigger('doubleClicked');
   },
 
-  'blur .edit': function(event, template) {
+  'blur .edit'(event, template) {
     template.$(template.firstNode).trigger('editingCanceled');
   },
 
-  'keyup .edit': function(event, template) {
+  'keyup .edit'(event, template) {
 
-    switch(event.keyCode) {
-      case ESCAPE_KEY:
-        template.$(template.firstNode).trigger('editingCanceled');
-        break;
-      case ENTER_KEY:
-        template.$(template.firstNode).trigger('editingCompleted');
-        break;
+    switch (event.keyCode) {
+    case ESCAPE_KEY:
+      template.$(template.firstNode).trigger('editingCanceled');
+      break;
+    case ENTER_KEY:
+      template.$(template.firstNode).trigger('editingCompleted');
+      break;
+    default:
     }
   }
 });

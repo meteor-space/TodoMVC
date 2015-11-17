@@ -1,12 +1,12 @@
 
 Space.flux.BlazeComponent.extend(TodoMVC, 'Footer', {
 
-  Dependencies: {
+  dependencies: {
     store: 'TodoMVC.TodosStore',
     meteor: 'Meteor'
   },
 
-  filters: function() {
+  filters() {
     return _.map(this.store.FILTERS, function(key) {
       return {
         name: key[0].toUpperCase() + key.slice(1),
@@ -15,32 +15,31 @@ Space.flux.BlazeComponent.extend(TodoMVC, 'Footer', {
     });
   },
 
-  activeTodosCount: function() {
+  activeTodosCount() {
     return this.store.activeTodos().count();
   },
 
-  completedTodosCount: function() {
+  completedTodosCount() {
     return this.store.completedTodos().count();
   },
 
-  pluralize: function(count) {
-    if(count === 1) {
+  pluralize(count) {
+    if (count === 1) {
       return 'item';
-    }
-    else {
+    } else {
       return 'items';
     }
   },
 
-  events: function() {
+  events() {
     return [{
-      'click #clear-completed': function(event) {
+      'click #clear-completed'() {
         this.meteor.call('clearCompletedTodos');
       }
     }];
   },
 
-  _mapAvailableFilters: function() {
+  _mapAvailableFilters() {
     return _.map(this.store.FILTERS, function(key) {
       return {
         name: key[0].toUpperCase() + key.slice(1),

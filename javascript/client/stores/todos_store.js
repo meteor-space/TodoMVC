@@ -2,7 +2,7 @@
 Space.flux.Store.extend(TodoMVC, 'TodosStore', {
 
   // The store needs a reference to the todos collection
-  Dependencies: {
+  dependencies: {
     todos: 'TodoMVC.Todos'
   },
 
@@ -10,7 +10,7 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
   FILTERS: {
     ALL: 'all',
     ACTIVE: 'active',
-    COMPLETED: 'completed',
+    COMPLETED: 'completed'
   },
 
   _session: 'TodoMVC.TodosStoreSession',
@@ -20,31 +20,32 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
   // These methods can be used by other parts of the system to
   // fetch reactive data and auto-update when store data changes.
 
-  reactiveVars: function() {
+  reactiveVars() {
     return [{
-      activeFilter: this.FILTERS.ALL,
+      activeFilter: this.FILTERS.ALL
     }];
   },
 
-  sessionVars: function() {
+  sessionVars() {
     return [{
       editingTodoId: null
     }];
   },
 
-  filteredTodos: function() {
+  filteredTodos() {
     switch (this.activeFilter()) {
-      case this.FILTERS.ALL: return this.todos.find();
-      case this.FILTERS.ACTIVE: return this.todos.find({ isCompleted: false});
-      case this.FILTERS.COMPLETED: return this.todos.find({ isCompleted: true });
+    case this.FILTERS.ALL: return this.todos.find();
+    case this.FILTERS.ACTIVE: return this.todos.find({ isCompleted: false});
+    case this.FILTERS.COMPLETED: return this.todos.find({ isCompleted: true });
+    default: this.todos.find();
     }
   },
 
-  completedTodos: function() {
+  completedTodos() {
     return this.todos.findCompletedTodos();
   },
 
-  activeTodos: function() {
+  activeTodos() {
     return this.todos.findActiveTodos();
   },
 
@@ -53,7 +54,7 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
   // Map private methods to events coming from the outside
   // this is the only way state can change within the store.
 
-  eventSubscriptions: function() {
+  eventSubscriptions() {
     return [{
       'TodoMVC.TodoCreated': this._insertNewTodo,
       'TodoMVC.TodoDeleted': this._removeTodo,
@@ -65,26 +66,26 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
     }];
   },
 
-  _insertNewTodo: function(event) {
+  _insertNewTodo(event) {
     this.todos.insert({
       title: event.title,
       isCompleted: false
     });
   },
 
-  _removeTodo: function(event) {
+  _removeTodo(event) {
     this.todos.remove(event.todoId);
   },
 
-  _setEditingTodoId: function(event) {
+  _setEditingTodoId(event) {
     this._setSessionVar('editingTodoId', event.todoId);
   },
 
-  _unsetEditingTodoId: function() {
+  _unsetEditingTodoId() {
     this._setSessionVar('editingTodoId', null);
   },
 
-  _updateTodoTitle: function(event) {
+  _updateTodoTitle(event) {
     this.todos.update(event.todoId, {
       $set: {
         title: event.newTitle
@@ -92,16 +93,15 @@ Space.flux.Store.extend(TodoMVC, 'TodosStore', {
     });
   },
 
-  _toggleTodo: function(event) {
-    var isCompleted = this.todos.findOne(event.todoId).isCompleted;
+  _toggleTodo(event) {
     this.todos.update(event.todoId, {
       $set: {
-        isCompleted: !isCompleted
+        isCompleted: !this.todos.findOne(event.todoId).isCompleted
       }
     });
   },
 
-  _changeActiveFilter: function(event) {
+  _changeActiveFilter(event) {
     this._setReactiveVar('activeFilter', event.filter);
   }
 

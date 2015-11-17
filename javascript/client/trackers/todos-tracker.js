@@ -1,12 +1,12 @@
 Space.messaging.Tracker.extend(TodoMVC, 'TodosTracker', {
 
-  Dependencies: {
+  dependencies: {
     store: 'TodoMVC.TodosStore',
-    meteor: 'Meteor',
+    meteor: 'Meteor'
   },
 
   // Reactively subscribe to the todos data based on the active filter
-  autorun: function() {
+  autorun() {
     this.meteor.subscribe('todos', this.store.activeFilter());
   }
 

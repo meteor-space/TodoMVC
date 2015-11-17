@@ -1,12 +1,20 @@
 
-TodoMVC = Space.flux.Application.extend('TodoMVC', {
-  RequiredModules: ['Space.flux'],
-  Stores: ['TodoMVC.TodosStore'],
-  Components: [
+TodoMVC = Space.Application.extend('TodoMVC', {
+
+  requiredModules: ['Space.flux'],
+
+  stores: ['TodoMVC.TodosStore'],
+
+  components: [
     'TodoMVC.Input',
     'TodoMVC.Footer',
     'TodoMVC.TodoList'
   ],
-  Controllers: ['TodoMVC.RouteController', 'TodoMVC.LayoutController'],
-  Singletons: ['TodoMVC.TodosTracker']
+
+  controllers: [
+    'TodoMVC.RouteController',
+    'TodoMVC.LayoutController'
+  ],
+
+  singletons: ['TodoMVC.TodosTracker']
 });

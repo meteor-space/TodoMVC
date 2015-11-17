@@ -1,24 +1,24 @@
 
 Space.flux.BlazeComponent.extend(TodoMVC, 'TodoList', {
 
-  Dependencies: {
+  dependencies: {
     store: 'TodoMVC.TodosStore',
-    meteor: 'Meteor',
+    meteor: 'Meteor'
   },
 
-  todos: function() {
+  todos() {
     return this.store.filteredTodos();
   },
 
-  hasAnyTodos: function() {
+  hasAnyTodos() {
     return this.store.filteredTodos().count() > 0;
   },
 
-  allTodosCompleted: function() {
+  allTodosCompleted() {
     return this.store.activeTodos().count() === 0;
   },
 
-  isToggleChecked: function() {
+  isToggleChecked() {
     if (this.hasAnyTodos() && this.allTodosCompleted()) {
       return 'checked';
     } else {
@@ -26,13 +26,13 @@ Space.flux.BlazeComponent.extend(TodoMVC, 'TodoList', {
     }
   },
 
-  prepareTodoData: function() {
+  prepareTodoData() {
     todo = this.currentData();
     todo.isEditing = this.store.editingTodoId() === todo._id;
     return todo;
   },
 
-  events: function() {
+  events() {
     return [{
       'toggled .todo': this.toggleTodo,
       'destroyed .todo': this.deleteTodo,
@@ -43,27 +43,27 @@ Space.flux.BlazeComponent.extend(TodoMVC, 'TodoList', {
     }];
   },
 
-  toggleTodo: function() {
+  toggleTodo() {
     this.publish(new TodoMVC.TodoToggled({
       todoId: this.currentData()._id
     }));
   },
 
-  deleteTodo: function() {
+  deleteTodo() {
     this.publish(new TodoMVC.TodoDeleted({
       todoId: this.currentData()._id
     }));
   },
 
-  editTodo: function(event) {
+  editTodo() {
     this.publish(new TodoMVC.TodoEditingStarted({
       todoId: this.currentData()._id
     }));
   },
 
-  submitNewTitle: function(event) {
-    var todo = Space.flux.getEventTarget(event);
-    var newTitle = todo.getTitleValue();
+  submitNewTitle(event) {
+    let todo = Space.flux.getEventTarget(event);
+    let newTitle = todo.getTitleValue();
     this.publish(new TodoMVC.TodoTitleChanged({
       todoId: todo.data._id,
       newTitle: newTitle
@@ -71,15 +71,15 @@ Space.flux.BlazeComponent.extend(TodoMVC, 'TodoList', {
     this.stopEditing();
   },
 
-  toggleAllTodos: function() {
+  toggleAllTodos() {
     this.meteor.call('toggleAllTodos');
   },
 
-  stopEditing: function() {
+  stopEditing() {
     this.publish(new TodoMVC.TodoEditingEnded({
       todoId: this.currentData()._id
     }));
-  },
+  }
 })
 // Register blaze-component for template
 .register('todo_list');

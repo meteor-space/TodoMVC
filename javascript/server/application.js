@@ -1,7 +1,7 @@
 
 TodoMVC = Space.Application.extend('TodoMVC', {
-  RequiredModules: ['Space.messaging'],
-  Singletons: [
+  requiredModules: ['Space.messaging'],
+  singletons: [
     'TodoMVC.TodosApi',
     'TodoMVC.TodosPublication'
   ]

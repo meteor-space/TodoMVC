@@ -1,7 +1,7 @@
 
 Space.messaging.Api.extend(TodoMVC, 'TodosApi', {
 
-  Dependencies: {
+  dependencies: {
     todos: 'TodoMVC.Todos'
   },
 
@@ -10,18 +10,15 @@ Space.messaging.Api.extend(TodoMVC, 'TodosApi', {
   },
 
   methods: function() {
-    return [
-      {
-        'toggleAllTodos': function () {
-          var toggleCompleted = {$set: {isCompleted: !this._allTodosCompleted()}};
-          this.todos.update({}, toggleCompleted, {multi: true});
-        }
-      }, {
-        'clearCompletedTodos': function () {
-          this.todos.remove({isCompleted: true});
-        }
+    return [{
+      'toggleAllTodos': function() {
+        let toggleCompleted = {$set: {isCompleted: !this._allTodosCompleted()}};
+        this.todos.update({}, toggleCompleted, {multi: true});
+      },
+      'clearCompletedTodos': function() {
+        this.todos.remove({isCompleted: true});
       }
-    ];
+    }];
   }
 
 });

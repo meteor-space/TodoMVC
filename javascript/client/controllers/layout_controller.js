@@ -1,13 +1,13 @@
 
 Space.Object.extend(TodoMVC, 'LayoutController', {
 
-  Dependencies: {
+  dependencies: {
     layout: 'BlazeLayout'
   },
 
-  eventSubscriptions: function() {
+  eventSubscriptions() {
     return [{
-      'TodoMVC.FilterRouteTriggered': function(event) {
+      'TodoMVC.FilterRouteTriggered'() {
         this.layout.render("index");
       }
     }];

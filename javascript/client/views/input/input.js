@@ -1,13 +1,13 @@
 
 Space.flux.BlazeComponent.extend(TodoMVC, 'Input', {
 
-  events: function() {
+  events() {
     return [{
-      'keyup #new-todo': function(event) {
+      'keyup #new-todo'(event) {
         // When it was the ENTER key
-        if(event.keyCode === 13) {
+        if (event.keyCode === 13) {
           // Tell mediator about it
-          var input = this.$('#new-todo').val();
+          let input = this.$('#new-todo').val();
           this.publish(new TodoMVC.TodoCreated({ title: input}));
           // Reset input
           this.$('#new-todo').val('');

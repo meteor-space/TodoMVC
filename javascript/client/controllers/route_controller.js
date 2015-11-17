@@ -1,10 +1,10 @@
 
 Space.Object.extend(TodoMVC, 'RouteController', {
 
-  eventSubscriptions: function() {
+  eventSubscriptions() {
     return [{
       // Tell the rest of the application that the expected filter mode changed
-      'TodoMVC.FilterRouteTriggered': function(event) {
+      'TodoMVC.FilterRouteTriggered'(event) {
         this.publish(new TodoMVC.FilterChanged({
           filter: event.filterType
         }));
