@@ -1,7 +1,8 @@
 class TodoMVC.TodosPublication extends Space.messaging.Publication
 
-  Dependencies:
+  dependencies: {
     todosCollection: 'TodoMVC.Todos'
+  }
 
   publications: -> [
     'todos': (context, filter) ->

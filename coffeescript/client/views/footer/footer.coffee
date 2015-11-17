@@ -3,7 +3,7 @@ class TodoMVC.Footer extends Space.flux.BlazeComponent
 
   @register 'footer'
 
-  Dependencies:
+  dependencies:
     store: 'TodoMVC.TodosStore'
     meteor: 'Meteor'
 

@@ -1,7 +1,7 @@
 
 class TodoMVC.TodosStore extends Space.flux.Store
 
-  Dependencies:
+  dependencies:
     todos: 'TodoMVC.Todos'
 
   FILTERS:

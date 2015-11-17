@@ -1,7 +1,7 @@
 
 class TodoMVC.LayoutController extends Space.Object
 
-  Dependencies: {
+  dependencies: {
     layout: 'BlazeLayout'
   }
 

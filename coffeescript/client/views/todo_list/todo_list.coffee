@@ -4,7 +4,7 @@ class TodoMVC.TodoList extends Space.flux.BlazeComponent
   # Register blaze-component for template
   @register 'todo_list'
 
-  Dependencies: {
+  dependencies: {
     store: 'TodoMVC.TodosStore'
     meteor: 'Meteor'
   }

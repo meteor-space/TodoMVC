@@ -1,19 +1,23 @@
 
-class @TodoMVC extends Space.flux.Application
+class @TodoMVC extends Space.Application
 
-  RequiredModules: ['Space.flux']
-  Stores: [
+  requiredModules: ['Space.flux']
+
+  stores: [
     'TodoMVC.TodosStore'
   ]
-  Components: [
+
+  components: [
     'TodoMVC.Input'
     'TodoMVC.Footer'
     'TodoMVC.TodoList'
   ]
-  Controllers: [
+
+  controllers: [
     'TodoMVC.RouteController'
     'TodoMVC.LayoutController'
   ]
-  Singletons: [
+
+  singletons: [
     'TodoMVC.TodosTracker'
   ]

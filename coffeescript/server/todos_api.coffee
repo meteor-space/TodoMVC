@@ -1,7 +1,7 @@
 
 class TodoMVC.TodosApi extends Space.messaging.Api
 
-  Dependencies: {
+  dependencies: {
     todos: 'TodoMVC.Todos'
   }
 

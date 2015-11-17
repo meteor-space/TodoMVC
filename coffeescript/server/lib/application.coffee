@@ -1,8 +1,9 @@
 
 class @TodoMVC extends Space.Application
 
-  RequiredModules: ['Space.messaging']
-  Singletons: [
+  requiredModules: ['Space.messaging']
+
+  singletons: [
     'TodoMVC.TodosApi'
     'TodoMVC.TodosPublication'
   ]
