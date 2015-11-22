@@ -7,12 +7,7 @@ Space.flux.BlazeComponent.extend(TodoMVC, 'Footer', {
   },
 
   filters() {
-    return _.map(this.store.FILTERS, function(key) {
-      return {
-        name: key[0].toUpperCase() + key.slice(1),
-        path: key
-      };
-    });
+    return this._mapAvailableFilters();
   },
 
   activeTodosCount() {
