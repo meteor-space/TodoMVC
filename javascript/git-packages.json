@@ -9,7 +9,7 @@
   },
   "space:ui": {
     "git":"https://github.com/meteor-space/ui.git",
-    "version": "9281635b5f0030d8053036c463a80487543b7edd"
+    "version": "80aa4d54b47c5c771f61c6602765832e4677c5d3"
   },
   "space:flux": {
     "git":"https://github.com/meteor-space/flux.git",
