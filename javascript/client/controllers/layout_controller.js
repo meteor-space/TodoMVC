@@ -21,5 +21,3 @@ Space.Object.extend(TodoMVC, 'LayoutController', {
     }];
   }
 });
-
-TodoMVC.LayoutController.mixin(Space.messaging.EventSubscribing);
