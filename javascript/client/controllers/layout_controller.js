@@ -1,6 +1,10 @@
 
 Space.Object.extend(TodoMVC, 'LayoutController', {
 
+  mixin: [
+    Space.messaging.EventSubscribing
+  ],
+
   dependencies: {
     layout: 'BlazeLayout'
   },
