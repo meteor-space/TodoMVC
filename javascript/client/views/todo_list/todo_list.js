@@ -62,7 +62,7 @@ Space.ui.BlazeComponent.extend(TodoMVC, 'TodoList', {
   },
 
   submitNewTitle(event) {
-    let todo = Space.flux.getEventTarget(event);
+    let todo = Space.ui.getEventTarget(event);
     let newTitle = todo.getTitleValue();
     this.publish(new TodoMVC.TodoTitleChanged({
       todoId: todo.data._id,
