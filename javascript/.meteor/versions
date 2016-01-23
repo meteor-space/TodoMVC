@@ -50,8 +50,9 @@ observe-sequence@1.0.7
 ordered-dict@1.0.4
 peerlibrary:assert@0.2.5
 peerlibrary:base-component@0.14.0
-peerlibrary:blaze-components@0.15.0
+peerlibrary:blaze-components@0.16.2
 peerlibrary:computed-field@0.3.1
+peerlibrary:data-lookup@0.1.0
 peerlibrary:reactive-field@0.1.0
 promise@0.5.1
 random@1.0.5

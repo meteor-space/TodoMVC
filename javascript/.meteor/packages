@@ -20,4 +20,4 @@ check
 space:flux@0.7.0
 kadira:flow-router@2.10.0
 kadira:blaze-layout@2.3.0
-peerlibrary:blaze-components@0.15.0
+peerlibrary:blaze-components@0.16.2
