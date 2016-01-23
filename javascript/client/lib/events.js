@@ -1,7 +1,7 @@
 
 // Application events with runtime-checked shape
 // using Meteor's check and Match API.
-Space.flux.defineEvents('TodoMVC', {
+Space.ui.defineEvents('TodoMVC', {
 
   FilterRouteTriggered: {
     filterType: String
