@@ -16,5 +16,10 @@ TodoMVC = Space.Application.extend('TodoMVC', {
     'TodoMVC.LayoutController'
   ],
 
-  singletons: ['TodoMVC.TodosTracker']
+  singletons: ['TodoMVC.TodosTracker'],
+
+  onInitialize() {
+    this.injector.map('TodoMVC.Todos').asStaticValue();
+  }
+
 });

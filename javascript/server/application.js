@@ -4,5 +4,10 @@ TodoMVC = Space.Application.extend('TodoMVC', {
   singletons: [
     'TodoMVC.TodosApi',
     'TodoMVC.TodosPublication'
-  ]
+  ],
+
+  onInitialize() {
+    this.injector.map('TodoMVC.Todos').asStaticValue();
+  }
+
 });
