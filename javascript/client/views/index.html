@@ -1,19 +1,22 @@
 
 <template name="index">
-
+  <head>
+    <meta charset="utf-8">
+    <title>Meteor Space • TodoMVC</title>
+  </head>
   <section id="todoapp">
-
+aa
     <header id="header">
       <h1>todos</h1>
-      {{> input}}
+      {{> Template.dynamic template=input}}
     </header>
 
     <section id="main">
-      {{> todo_list}}
+      {{> Template.dynamic template=todo_list}}
     </section>
 
     <footer id="footer">
-      {{> footer}}
+      {{> Template.dynamic template=footer}}
     </footer>
 
   </section>
