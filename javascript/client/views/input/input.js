@@ -1,5 +1,5 @@
 
-Space.flux.BlazeComponent.extend(TodoMVC, 'Input', {
+Space.ui.BlazeComponent.extend(TodoMVC, 'Input', {
 
   events() {
     return [{

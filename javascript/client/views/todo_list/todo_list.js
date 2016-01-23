@@ -1,5 +1,5 @@
 
-Space.flux.BlazeComponent.extend(TodoMVC, 'TodoList', {
+Space.ui.BlazeComponent.extend(TodoMVC, 'TodoList', {
 
   dependencies: {
     store: 'TodoMVC.TodosStore',
