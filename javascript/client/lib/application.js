@@ -20,6 +20,7 @@ TodoMVC = Space.Application.extend('TodoMVC', {
 
   onInitialize() {
     this.injector.map('TodoMVC.Todos').asStaticValue();
+    this.injector.map('BlazeLayout').to(BlazeLayout);
   }
 
 });
