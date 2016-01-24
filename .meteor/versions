@@ -61,7 +61,7 @@ reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
 session@1.1.1
-space:base@4.0.0
+space:base@4.0.1
 space:flux@0.7.0
 space:messaging@3.0.1
 space:ui@6.0.0

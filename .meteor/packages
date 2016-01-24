@@ -18,7 +18,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 blaze
 spacebars
 check
-space:base@4.0.0
+space:base@4.0.1
 space:messaging@3.0.1
 space:flux@0.7.0
 kadira:flow-router@2.10.0
